@@ -1,0 +1,36 @@
+plugins {
+    id 'scala'
+}
+
+group = 'com.example.md1'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation 'org.scala-lang:scala-library:2.13.12'
+    implementation 'org.apache.spark:spark-core_2.13:3.4.0'
+    implementation 'org.apache.spark:spark-sql_2.13:3.4.0'
+    implementation 'org.apache.spark:spark-streaming_2.13:3.4.0'
+    implementation 'org.apache.kafka:kafka-clients:3.4.0'
+    implementation 'org.apache.spark:spark-streaming-kafka-0-10_2.13:3.4.1'
+    implementation 'org.apache.spark:spark-sql-kafka-0-10_2.13:3.4.1'
+
+
+
+
+
+
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.withType(ScalaCompile) {
+    scalaCompileOptions.additionalParameters = ["-target:jvm-1.8"] // Ensure compatibility with Java 8
+}
